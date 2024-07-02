@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'cd';
-    src: url("../public/Sddystopiandemo-GO7xa.otf");
+    src: url("../src/components/fonts/Sddystopiandemo-GO7xa.otf");
 }
 
 *{
@@ -112,7 +112,7 @@ canvas{
     width: 242px;
     font-family: 'cd';
     font-size: 22px;
-    background-image: url('../public/Rectangle 63.jpg');
+    background-image: url('../src/components/Rectangle\ 63.jpg');
     color: black;
 }
 #convertButton{
@@ -120,7 +120,7 @@ canvas{
     width: 242px;
     font-family: 'cd';
     font-size: 28px;
-    background-image: url('../public/Rectangle 63.jpg');
+    background-image: url('../src/components/Rectangle\ 63.jpg');
     color: black;
 }
 label{
@@ -150,7 +150,7 @@ label{
     content: "";
     height: 37px;
     width: 37px;
-    background-image: url('../public/Component.jpg');
+    background-image: url('../src/components/Component.jpg');
     display: inline-block;
     transform: translateY(30%);
     margin-right: 10px;
@@ -159,7 +159,7 @@ label{
     content: "";
     height: 37px;
     width: 37px;
-    background-image: url('../public/Property\ 1=Variant2.jpg');
+    background-image: url('../src/components/Property\ 1=Variant2.jpg');
     position: absolute;
     display: inline-block;
     transform: translateY(30%);
@@ -205,7 +205,7 @@ label{
     margin: 50px auto;
     height: 300px;
     border-radius: 50%;
-    background-image: url('../public/Group 11.jpg');
+    background-image: url('../src/components/Group\ 11.jpg');
     z-index: 9;
     
 }
@@ -215,7 +215,7 @@ label{
     height: 500px;
     width: 500px;
     border-radius: 50%;
-    background-image: url('../public/Group\ 12.jpg');
+    background-image: url('../src/components/Group\ 12.jpg');
 }
 #file-input {
     display: none;
@@ -231,7 +231,7 @@ label{
     width: 300px;
     height: 300px;
     border-radius: 50%;
-    background-image: url('../public/Group 11.jpg');
+    background-image: url('../src/components/Group\ 11.jpg');
     background-size: cover;
     text-align: center;
     cursor: pointer;
@@ -242,7 +242,7 @@ label{
     height: 500px;
     width: 500px;
     border-radius: 50%;
-    background-image: url('../public/Group 12.jpg');
+    background-image: url('../src/components/Group\ 12.jpg');
 }
 
 #imageInput {
