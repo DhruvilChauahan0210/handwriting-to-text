@@ -1,5 +1,3 @@
-// Upload.js
-
 import React, { useState } from 'react';
 import './upload.css'; // Import your CSS file here
 
@@ -8,21 +6,37 @@ function Upload() {
   const [fileName, setFileName] = useState("");
   const [resultText, setResultText] = useState("");
   const [responseTime, setResponseTime] = useState(0);
+  const [selectedFile, setSelectedFile] = useState(null);
 
   const handleClick = (event) => {
     setUrlPostfix(event.target.value);
   };
 
-  const handleFileChange = async (event) => {
-    const fileInput = event.target;
-    const resultDiv = document.getElementById("result");
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      setSelectedFile(file);
+      setFileName(file.name);
+      const imagePreview = document.getElementById("imagePreview");
+      imagePreview.src = URL.createObjectURL(file);
+      imagePreview.style.display = "block";
+      document.getElementById("drop-area").style.display = "none";
+    } else {
+      setSelectedFile(null);
+      setFileName("");
+      const imagePreview = document.getElementById("imagePreview");
+      imagePreview.src = "";
+      imagePreview.style.display = "none";
+      document.getElementById("drop-area").style.display = "block";
+    }
+  };
 
-    if (fileInput.files.length === 0) {
+  const handleUpload = async () => {
+    if (!selectedFile) {
       alert("Please select an image file first.");
       return;
     }
 
-    const file = fileInput.files[0];
     const reader = new FileReader();
     reader.onloadend = async () => {
       const base64Image = reader.result.split(",")[1];
@@ -53,8 +67,7 @@ function Upload() {
       }
     };
 
-    reader.readAsDataURL(file);
-    setFileName(file.name);
+    reader.readAsDataURL(selectedFile);
   };
 
   const handleDragOver = (event) => {
@@ -77,7 +90,7 @@ function Upload() {
     if (files.length > 0) {
       const fileInput = document.getElementById("imageInput");
       fileInput.files = files;
-      handleFileChange(event);
+      handleFileChange({ target: fileInput });
     }
   };
 
@@ -100,24 +113,24 @@ function Upload() {
           </ul>
         </div>
       </nav>
-      
+
       <label htmlFor="imageInput" id="drop-area" onDragOver={handleDragOver} onDragLeave={handleDragLeave} onDrop={handleDrop}>
         <input type="file" id="imageInput" accept="image/*" style={{ display: 'none' }} onChange={handleFileChange} />
       </label>
-      
+
       <img id="imagePreview" src="" alt="Image Preview" style={{ display: 'none' }} />
       <div className="buttons">
-        <button id="uploadButton" onClick={handleFileChange}>Upload and Convert</button>
+        <button id="uploadButton" onClick={handleUpload}>Upload and Convert</button>
         <div id="fileNameDisplay">{fileName && `Selected file: ${fileName}`}</div>
       </div>
-      
+
       <div id="radio-selection">
         <input id="google" type="radio" name="service" onChange={handleClick} value="handwriting-to-text-google" checked={urlPostfix === 'handwriting-to-text-google'} />
         <label htmlFor="google">Google</label>
         <input id="azure" type="radio" name="service" onChange={handleClick} value="handwriting-to-text-azure" checked={urlPostfix === 'handwriting-to-text-azure'} />
         <label htmlFor="azure">Azure</label>
       </div>
-      
+
       <div id="result">{resultText && `${resultText}\nResponse time: ${responseTime} seconds`}</div>
     </div>
   );
