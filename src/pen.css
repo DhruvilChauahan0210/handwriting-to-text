@@ -1,0 +1,181 @@
+body {
+    scroll-behavior: smooth;
+    margin: 0;
+    overflow-x: hidden;
+    background-color: rgba(151, 71, 255, 1);
+    height: 1200vh; /* This will ensure there is enough space to scroll */
+}
+
+section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center; /* Adjust this value to set the desired height of the section */
+}
+
+.home {
+    background-image: url('../src/components/image\ to\ text.jpg'); /* Replace with the correct path to your image */
+    background-position: center; /* Center the image */
+    background-size: contain;
+    background-repeat: no-repeat; /* Adjust the image to cover the entire div */
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: 10;
+    /* transition: opacity 0.5s ease; */
+    /* display: ; */
+    
+}
+
+
+.pen1 {
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-color: rgba(151, 71, 255, 1);
+    /* z-index: 10; */
+    /* transition: opacity 0.5s ease-in; */
+    /* display: none;
+    opacity: 0; */
+}
+
+.cap {
+    position: absolute;
+    background-image: url('../src/components/cap.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    z-index: 9;
+    top: 250px;
+    height: 200px;
+    width: 350px;
+    left: 300px;
+    /* opacity: 0; Initially hide cap and body */
+    /* transition: opacity 2s ease-in;   */
+}
+
+.body {
+    position: absolute;
+    background-image: url('../src/components/Group\ 14.png');
+    left: 300px;
+    background-repeat: no-repeat;
+    top: 265px;
+    height: 200px;
+    width: 900px;
+    background-size: contain;
+    /* opacity: 0; Initially hide cap and body */
+    /* transition: opacity 0.5s ease;  */
+}
+.divider {
+    display: none; /* Initially hidden */
+    opacity: 0;
+    /* transition: opacity 0.5s ease; Smooth fade-in effect */
+    height: 500px; /* Adjust height as needed */
+    width: 600px;
+    background-color: rgba(255, 251, 234, 1);
+    border-radius: 25px; /* Adjust background color as needed */
+}
+.divider1 {
+    position: absolute;
+    background-image: url('../src/components/writing\ to\ text.png');
+    background-size: contain;
+    height: 600px; /* Adjust height as needed */
+    width: 850px;
+    background-color: rgba(255, 251, 234, 1);
+    border-radius: 25px;  /* Example color */
+    display: none; /* Hidden initially */
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    box-shadow: 0 0 30px rgba(255, 251, 234, 1);
+    transition: transform 0.3s ease;
+    overflow: hidden;
+    border: 5px solid black;
+   
+    
+}
+.divider1:hover .card1{
+    right: 0;
+    /* box-shadow: 0 0 30px rgba(41, 255, 217, 1); */
+    
+}
+.divider2 {
+    position: absolute;
+    background-image: url('../src/components/image\ to\ text.png');
+    background-size: contain;
+    height: 600px; /* Adjust height as needed */
+    width: 850px;
+    background-color: rgba(255, 251, 234, 1);
+    border-radius: 25px;  /* Example color */
+    display: none; /* Hidden initially */
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    box-shadow: 0 0 30px rgba(255, 251, 234, 1);
+    transition: transform 0.3s ease;
+    overflow: hidden;
+    border: 5px solid black;
+   
+    
+}
+.divider2:hover .card2{
+    right: 0;
+    /* box-shadow: 0 0 30px rgba(41, 255, 217, 1); */
+    
+}
+.card1{
+    position: absolute;
+    /* padding: 30px; */
+    /* top: 0; */
+    right: -100%;
+    overflow: hidden;
+    height: 600px;
+    width: 850px;
+    border-radius: 25px;
+    background-color: rgba(0, 0, 0, 0.07);
+    backdrop-filter: blur(5px);
+    transition: 1s;
+   
+    
+}
+.card2{
+    position: absolute;
+    /* padding: 30px; */
+    /* top: 0; */
+    right: -100%;
+    overflow: hidden;
+    height: 600px;
+    width: 850px;
+    border-radius: 25px;
+    background-color: rgba(0, 0, 0, 0.07);
+    backdrop-filter: blur(5px);
+    transition: 1s;
+   
+    
+}
+
+
+.card_heading{
+    margin-top: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+}
+p{
+    margin: 25px;
+    font-size: 28px;
+}
+.show {
+    display: block !important;
+    opacity: 1 !important;
+}
+
+/* CSS for smooth transitions */
+.cap, .body, .divider1, .divider2 {
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}

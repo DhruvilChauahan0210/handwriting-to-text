@@ -1,14 +1,14 @@
-import React from 'react';
-// import HandwritingToText from './text';
-import Upload from './upload';
+
+import './App.css';
+import HandwritingToText from './text';
 
 
 function App() {
   return (
-    <>
-      {/* <HandwritingToText/> */}
-      <Upload/>
-    </>
+   <>
+      <HandwritingToText/>
+      {/* <Upload/> */}
+   </>
   );
 }
 
